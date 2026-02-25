@@ -1,0 +1,4 @@
+Flask>=2.0.0
+flask-apispec>=0.12.0
+apispec>=6.0.0
+swagger-ui-bundle>=0.0.9
