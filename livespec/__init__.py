@@ -52,6 +52,24 @@ def init_docs(app, title: str = "API", version: str = "1.0.0"):
     def openapi_json():
         return app.apispec.to_dict()
     
+    @app.route("/redoc")
+    def redoc():
+        """ReDoc - Modern, clean API documentation view."""
+        return """<!DOCTYPE html>
+<html>
+<head>
+    <title>ReDoc - API Documentation</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
+    <style>body { margin: 0; padding: 0; }</style>
+</head>
+<body>
+    <redoc spec-url="/openapi.json"></redoc>
+    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0/bundles/redoc.standalone.js"></script>
+</body>
+</html>"""
+    
     return docs
 
 
